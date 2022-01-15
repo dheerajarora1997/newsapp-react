@@ -39,7 +39,7 @@ export default class News extends Component {
     }
 
     async updateNews(pageNo) {
-        const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page}&pageSize=${this.props.pageSize}`;
+        const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${pageNo}&pageSize=${this.props.pageSize}`;
 
         this.setState({ loading: true })
 
@@ -48,26 +48,21 @@ export default class News extends Component {
         this.setState({
             articles: parseData.articles,
             totalArticles: parseData.totalResults,
-            loading: false
+            loading: false,
+            page: pageNo,
         });
     }
 
     async componentDidMount() {
-        this.updateNews();
+        this.updateNews(this.state.page);
     }
 
     prevClickHandle = async () => {
-        this.setState({
-            page: this.state.page - 1,
-        });
-        this.updateNews();
+        this.updateNews(this.state.page - 1);
     }
 
     nextClickHandle = async () => {
-        this.setState({
-            page: this.state.page + 1,
-        });
-        this.updateNews();
+        this.updateNews(this.state.page + 1);
     }
     render() {
         return (
