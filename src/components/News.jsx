@@ -24,14 +24,18 @@ export default class News extends Component {
 
     articles = []
 
-    constructor() {
-        super();
+    capitalizeFirstLetter(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+    constructor(props) {
+        super(props);
         this.state = {
             articles: [],
             loading: false,
             page: 1,
             totalResults: 0,
         }
+        window.document.title = `${this.capitalizeFirstLetter(this.props.category)} - NewsApp`;
     }
 
     async updateNews(pageNo) {
@@ -69,7 +73,7 @@ export default class News extends Component {
         return (
             <div className="container" >
                 <div className="d-flex justify-content-between align-items-center">
-                    <h2 className="my-4">Top Headlines</h2>
+                    <h2 className="my-4">New App - Top {this.capitalizeFirstLetter(this.props.category)} Headlines</h2>
                     <div className="">Total Available Post : <span className="badge bg-secondary rounded-pill">{this.state.totalArticles}</span></div>
                 </div>
                 {this.state.loading && <Spinner />}
