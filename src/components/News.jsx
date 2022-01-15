@@ -82,7 +82,7 @@ export default class News extends Component {
                     })}
                 </div>
                 <div className="d-flex justify-content-between align-items-center">
-                    <button className="btn btn-sm btn-dark" disabled={this.state.page == 1} onClick={this.prevClickHandle}>Previous</button>
+                    <button className="btn btn-sm btn-dark" disabled={this.state.page === 1} onClick={this.prevClickHandle}>Previous</button>
                     <Pagination page={this.state.page} totalArticles={this.state.totalArticles} pageSize={this.props.pageSize} />
                     <button className="btn btn-sm btn-dark" disabled={(this.state.page >= Math.ceil(this.state.totalArticles / this.props.pageSize) ? true : false)} onClick={this.nextClickHandle}>Next</button>
                 </div>
