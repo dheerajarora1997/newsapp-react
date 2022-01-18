@@ -45,7 +45,7 @@ export default class News extends Component {
         this.setState({
             articles: parseData.articles,
             totalArticles: parseData.totalResults,
-            page: this.state.page + 1,
+            page: this.state.page,
         });
     }
 
@@ -75,10 +75,10 @@ export default class News extends Component {
                     dataLength={this.state.articles.length}
                     next={this.fetchMoreData}
                     hasMore={this.state.articles.length != this.state.totalArticles}
-                    loader={<Spinner />}
+                    loader={this.state.articles.length != this.state.totalArticles ? <Spinner /> : false}
                     endMessage={
-                        <p style={{ textAlign: 'center' }}>
-                            <b>Yay! You have seen it all</b>
+                        <p className="text-center">
+                            <b>Yay! <br />You have seen it all</b>
                         </p>
                     }
                 >

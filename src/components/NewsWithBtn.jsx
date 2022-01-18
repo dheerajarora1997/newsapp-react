@@ -63,6 +63,21 @@ export default class News extends Component {
         this.updateNews(this.state.page + 1);
     }
 
+    fetchMoreData = async () => {
+        this.setState({ page: this.state.page + 1 })
+        const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=1&pageSize=${this.props.pageSize}`;
+
+        this.setState({ loading: true })
+
+        let data = await fetch(url);
+        let parseData = await data.json();
+        this.setState({
+            articles: this.state.articles.concat(parseData.articles),
+            totalArticles: this.parseData.totalResults,
+            loading: false,
+        });
+    };
+
     render() {
         return (
             <div className="container" >
