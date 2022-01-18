@@ -82,7 +82,7 @@ export default class News extends Component {
                         </p>
                     }
                 >
-                    <div className="container">
+                    <div className="container pt-3">
                         <div className="row no-gutters">
                             {this.state.articles.map((element, index) => {
                                 return (
