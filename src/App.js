@@ -2,13 +2,13 @@ import './App.css';
 import React, { Component } from 'react'
 import Navbar from './components/Navbar';
 import News from './components/News';
+// import NewsWithBtn from './components/NewsWithBtn';
 import NoPage from './components/NoPage'
 
 import {
   BrowserRouter as Router,
   Routes,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 
 export default class App extends Component {
