@@ -13,7 +13,7 @@ export default class NewsItem extends Component {
                     <img src={imgUrl} className="card-img-top" />
                 </div>
                 <div className="card-body">
-                    <h5 className="card-title" style={{ minHeight: '55px' }} title={title}>{title ? title : ''}</h5>
+                    <h5 className="card-title" style={{ minHeight: '55px' }} title={title}>{title ? title : 'No Title Available'}</h5>
                     <p className="card-text text-break" style={{ minHeight: '80px' }}>{description}{description ? '...' : 'No Content Available'}</p>
                     <div className="d-flex align-items-center mb-3">
                         <small className="text-end d-inline-block w-100">By : <span className="text-muted">{author != null ? author : 'No User Available'}</span></small>
