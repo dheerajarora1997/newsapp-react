@@ -28,7 +28,7 @@ export default class App extends Component {
     let newsVar = {
       pageSize: 9,
       country: 'IN',
-      apiKey: 'b32d0fd96a86430a96c189b917b72382',
+      apiKey: process.env.REACT_APP_NEWS_API,
     };
     return (
       <Router>
