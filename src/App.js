@@ -1,8 +1,8 @@
 import './App.css';
-import React, { Component } from 'react'
+import React, { Component, useEffect, useState } from 'react'
 import Navbar from './components/Navbar';
 import News from './components/News';
-// import NewsWithBtn from './components/NewsWithBtn';
+import NewsWithBtn from './components/NewsWithBtn';
 import NoPage from './components/NoPage'
 import LoadingBar from 'react-top-loading-bar'
 
