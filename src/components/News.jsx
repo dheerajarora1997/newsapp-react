@@ -11,7 +11,6 @@ const News  = (props) => {
     const [page, setPage] = useState(1);
     const [totalResults, setTotalResults] = useState(0);
     const [totalArticles, setTotalArticles] = useState(0);
-    // window.document.title = `${capitalizeFirstLetter(props.category)} - NewsApp`;
 
     const capitalizeFirstLetter = (string) => {
         return string.charAt(0).toUpperCase() + string.slice(1);
@@ -35,6 +34,7 @@ const News  = (props) => {
     }
 
     useEffect(() => {
+        window.document.title = `${capitalizeFirstLetter(props.category)} - NewsApp`;
         updateNews();
     }, [])
 
