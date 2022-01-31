@@ -5,11 +5,11 @@ import {
 } from "react-router-dom";
 
 const modeOpacity = {
-    primary: '25',
-    warning: '25',
-    success: '25',
-    danger: '25',
-    info: '25',
+    primary: '75',
+    warning: '75',
+    success: '75',
+    danger: '75',
+    info: '75',
     light: '100',
     dark: '75',
     secondary: '75',
@@ -28,7 +28,20 @@ const modeContrast = {
 
 const Navbar = () => {
 
-    let themeMode = 'dark';
+    const [themeMode, setThemeMode] = useState('dark');
+
+    const toggleMode = (cls) => {
+        setThemeMode(cls);
+        if (cls == 'dark') {
+            window.document.body.className = '';
+            // window.document.body.classList.add('bg-opacity-25', 'bg-' + cls);
+        }
+        else {
+            window.document.body.className = '';
+            window.document.body.classList.add('bg-opacity-25', 'bg-' + cls);
+
+        }
+    }
 
     // state = {
     //     themeMode: 'dark',
@@ -45,7 +58,7 @@ const Navbar = () => {
 
     return (
         <>
-            <nav className={`navbar navbar-expand-lg navbar-${modeContrast[themeMode]} bg-${themeMode} bg-opacity-${modeOpacity[themeMode]}`}>
+            <nav className={`navbar navbar-expand-lg sticky-top navbar-${modeContrast[themeMode]} bg-${themeMode} bg-opacity-${modeOpacity[themeMode]}`}>
                 <div className="container">
                     <Link className="navbar-brand" to="/">News App</Link>
                     <button className="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -76,14 +89,14 @@ const Navbar = () => {
                             </li>
                         </ul>
                         <div className="d-flex justify-content-between ms-auto">
-                            <button type="button" onClick={() => { themeMode('primary') }} className="btn rounded bg-primary p-2 ms-3"></button>
-                            <button type="button" onClick={() => { themeMode('secondary') }} className="btn rounded bg-secondary p-2 ms-3"></button>
-                            <button type="button" onClick={() => { themeMode('danger') }} className="btn rounded bg-danger p-2 ms-3"></button>
-                            <button type="button" onClick={() => { themeMode('warning') }} className="btn rounded bg-warning p-2 ms-3"></button>
-                            <button type="button" onClick={() => { themeMode('success') }} className="btn rounded bg-success p-2 ms-3"></button>
-                            <button type="button" onClick={() => { themeMode('info') }} className="btn rounded bg-info p-2 ms-3"></button>
-                            <button type="button" onClick={() => { themeMode('dark') }} className="btn rounded bg-dark p-2 ms-3"></button>
-                            <button type="button" onClick={() => { themeMode('light') }} className="btn rounded bg-light p-2 ms-3"></button>
+                            <button type="button" onClick={() => { toggleMode('primary') }} className="btn rounded bg-primary p-2 ms-3"></button>
+                            <button type="button" onClick={() => { toggleMode('secondary') }} className="btn rounded bg-secondary p-2 ms-3"></button>
+                            <button type="button" onClick={() => { toggleMode('danger') }} className="btn rounded bg-danger p-2 ms-3"></button>
+                            <button type="button" onClick={() => { toggleMode('warning') }} className="btn rounded bg-warning p-2 ms-3"></button>
+                            <button type="button" onClick={() => { toggleMode('success') }} className="btn rounded bg-success p-2 ms-3"></button>
+                            <button type="button" onClick={() => { toggleMode('info') }} className="btn rounded bg-info p-2 ms-3"></button>
+                            <button type="button" onClick={() => { toggleMode('dark') }} className="btn rounded bg-dark p-2 ms-3"></button>
+                            <button type="button" onClick={() => { toggleMode('light') }} className="btn rounded bg-light p-2 ms-3"></button>
                         </div>
                     </div>
                 </div>
