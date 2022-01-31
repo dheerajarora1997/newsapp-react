@@ -9,7 +9,6 @@ const News  = (props) => {
 
     const [articles, setArticles] = useState([]);
     const [page, setPage] = useState(1);
-    const [totalResults, setTotalResults] = useState(0);
     const [totalArticles, setTotalArticles] = useState(0);
 
     const capitalizeFirstLetter = (string) => {
@@ -64,9 +63,9 @@ const News  = (props) => {
                 <InfiniteScroll
                     dataLength={articles.length}
                     next={fetchMoreData}
-                    hasMore={articles.length != totalArticles}
-                    loader={articles.length != totalArticles ? <Spinner /> : false}
-                    endMessage={ totalArticles != 0 ?
+                    hasMore={articles.length !== totalArticles}
+                    loader={articles.length !== totalArticles ? <Spinner /> : false}
+                    endMessage={ totalArticles !== 0 ?
                         <p className="text-center">
                             <b>Yay! <br />You have seen it all</b>
                         </p>
